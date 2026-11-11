@@ -34,18 +34,14 @@ $ (partial^2 p)/(partial x^2) = 1/c^2(partial^2 p)/(partial t^2) $
 
 Dont on peut écrire les solutions dans le domaine fréquentiel sous la forme
 
-- $ P(x, omega) = P^+ (omega) e^(i k x
-- ) + P^
-(omega) e^(i k x) $ <e1>
+$ P(x, omega) = P^+ (omega) e^(-i k x) + P^- (omega) e^(i k x) $ <e1>
 
 On en déduit, via l'équation d'Euler linéarisée, que le débit peut s'écrire
 
-- $ Z_c U(x, omega) = P^+(omega) e^(-i k x)P
-^-(omega) e^(i k x) $ <e2>
+$ Z_c U(x, omega) = P^+(omega) e^(-i k x) - P^- (omega) e^(i k x) $ <e2>
 
 En combinant ces deux équations écrites au point $x = x_2$, on obtient
-- $ cases(P^-(omega) = 1/2 (P_2(omega, x_2)Z
-_c U_2(omega, x_2)),
+$ cases(P^-(omega) = 1/2 (P_2(omega, x_2)Z_c U_2(omega, x_2)),
 P^+(omega) = 1/2(P_2(omega, x_2) + Z_c U_2(omega, x_2)) ) $
 
 On peut donc réécrire la pression au point $x = x_1$ en substituant ces expressions :
@@ -105,7 +101,7 @@ $ x_n approx n pi + epsilon_n quad text("avec") epsilon_n << 1 $
 On a alors $tan(x_n) = tan(epsilon_n) approx epsilon_n$ et par ailleurs $-alpha x_n approx -alpha n pi$ au premier ordre. On a donc
 
 $ epsilon_n = - (8 a)/(3 pi L) n pi \
-- => k_n L = n pi
+=> k_n L = n pi
 (8 a)/(3 pi L) n pi \
 => k_n (L + (8 a)/(3 pi)) = n pi $
 
@@ -139,10 +135,8 @@ Puisque ces phénomènes apparaissent de manière localisée aux parois, le cham
 ]
 
 D'après les transparents de Zegrev (cf. Chaigne), on peut montrer que cela revient à introduire deux nouvelles grandeurs :#note(label: "Source")[Transparents de Zegrev ; Chaigne.]
-- 
-$Z_v$ l'impédance linéique en série, modélisant l'effet des frottements visqueux
-- 
-$Y_t$ l'admittance linéique en parallèle, modélisant l'effet de la conduction thermique
+- $Z_v$ l'impédance linéique en série, modélisant l'effet des frottements visqueux
+- $Y_t$ l'admittance linéique en parallèle, modélisant l'effet de la conduction thermique
 Elles sont telles que
 $ (dif P)/(dif x) = -Z_v U quad text("et") quad (dif U)/(dif x) = -Y_t P $
 
@@ -157,7 +151,7 @@ Encore une fois, on a une impédance imaginaire pure, et considérer $Y_t$ avec 
 On peut montrer que ces deux grandeurs sont données par les expressions suivantes :
 $
 Z_v = (j omega rho) / S (1 - 2/(k_v R) (J_1(k_v R))/(J_0(k_v R)))^(-1) \
-- Y_t = j omega chi_s S (1 + (gamma-1) 2/(k_t R) (J_1(k_t R))/(J_0(k_t R)))
+Y_t = j omega chi_s S (1 + (gamma-1) 2/(k_t R) (J_1(k_t R))/(J_0(k_t R)))
 $
 
 Avec $S$ la section du guide, $R$ son rayon, $J_0$ et $J_1$ les fonction de Bessel d'ordre 0 et 1, et
@@ -165,23 +159,16 @@ Avec $S$ la section du guide, $R$ son rayon, $J_0$ et $J_1$ les fonction de Bess
 $k_v$, où $I_v = mu / (rho_0 c)$ avec $mu$ le coefficient de viscosité dynamique.$ k_v = sqrt((-j omega)/(c I_v)) $
 - le nombre d'onde de diffusion thermique 
 $k_t$, où $I_t = kappa / (rho_0 c C_p)$ avec $kappa$ le coefficient de conductivité thermique et $C_p$ la chaleur spécifique à pression constante.$ k_t = sqrt((-j omega)/(c I_t)) $
-- 
-$chi_s$ la compressibilité adiabatique du gaz
-- 
-$gamma$ le rapport des chaleurs spécifiques à pression et volume constants
+- $chi_s$ la compressibilité adiabatique du gaz
+- $gamma$ le rapport des chaleurs spécifiques à pression et volume constants
 
 On remarque que si $mu = 0$ alors $k_v -> infinity$ et $Z_v = j omega S / rho_0$, de sorte qu'on retrouve l'équation d'Euler linéarisée. Il en va de même pour le cas $kappa = 0$ et l'équation de conservation de la masse.
 
 Ce formalisme introduit une constante de propagation complexe $Gamma$ telle que
 $ Gamma = sqrt(Z_v Y_t) = j k_c $
 Avec $k_c$ le nombre d'onde complexe. Ainsi, on peut écrire la pression et le débit dans le guide comme
-- $ P(x, omega) = P^+ (omega) e^(
-- Gamma x) + P^
-(omega) e^(Gamma x) \
-- U(x, omega) = Z_c^(-1) (P^+ (omega) e^(
-- Gamma x)P
-- ^
-(omega) e^(Gamma x)) $
+$ P(x, omega) = P^+ (omega) e^(- Gamma x) + P^- (omega) e^(Gamma x) \
+U(x, omega) = Z_c^(-1) (P^+ (omega) e^(- Gamma x)- P^- (omega) e^(Gamma x)) $
 Où $Z_c$ devient également complexe, et est donnée par
 $ Z_c = sqrt(Z_v / Y_t) $
 
@@ -215,9 +202,7 @@ Pour prendre en compte les pertes visco-thermiques dans le cône, l'idée est de
 pour ce rayon moyen.
 
 Cela revient à réécrire @mat_cone en remplaçant
-- 
-$rho$ par $rho_s$ : $ rho_s = rho (1 + (2 sqrt(-j)) / r_v) $
-- 
+- $rho$ par $rho_s$ : $ rho_s = rho (1 + (2 sqrt(-j)) / r_v) $
 - $chi_s$ par $chi_t$ : $ chi_t = chi_s (1 + (2 (gamma-1) sqrt(-j)) / r_t) $
 
 Avec $r_v$ et $r_t$ indépendants de $x$ calculés à partir de $r_m$ le rayon moyen du cône :
@@ -227,11 +212,11 @@ Avec $l_v = mu \/ (rho_0 c)$ et $P_r$ le nombre de Prandtl de l'air.
 
 Les effets visco-thermiques changeant la vitesse des particules, le nombre d'onde devient complexe et est donné par
 $
--   k = omega sqrt(rho_s chi_t) = omega / c (1 + (sqrt(-j)) / r_v (1 + (gamma-1) sqrt(P_r)))
+ k = omega sqrt(rho_s chi_t) = omega / c (1 + (sqrt(-j)) / r_v (1 + (gamma-1) sqrt(P_r)))
 $ <k_pertes>
 
 De ce fait, les pulsations sont également complexes et sont données par
-- $ omega = k c (1 - (sqrt(-j)) / r_v (1 + (gamma-1)) / sqrt(P_r))) $
+$ omega = k c (1 - (sqrt(-j)) / r_v (1 + (gamma-1)) / sqrt(P_r)) $
 
 Ainsi, une décroissance exponentielle apparaît dans les solutions modales, et on peut montrer que l'amortissement est proportionnel à $1\/r_m$.
 
@@ -244,13 +229,9 @@ On a nécessairement continuité de la pression et du débit aux interfaces entr
 
 = Résolution modale
 On considère à présent la concaténation de $M$ troncs de cônes. On commence par déterminer, pour chaque $i in \{1, dots, M\}$,
-- le rayon moyen du tronc : 
-$r_(m,i) = (r_(1,i) + r_(2,i)) / (2)$
-- la pente des parois du tronc : 
-- $tan theta_i = (r_(2, i)r
-_(1, i)) / L_i$ avec $L_i$ la longueur du tronc
-- 
-$s_(i, 1)$ et $s_(i, 2)$ les distances de l'apex du cône $i$ à, respectivement, l'extrémité amont du tronc, et l'extrémité aval du tronc. On a donc $s_(i, 2) = s_(i, 1) + L_i$, $r_(i, 1) = s_(i, 1) tan theta_i$ et $r_(i, 2) = s_(i, 2) tan theta_i$.
+- le rayon moyen du tronc : $r_(m,i) = (r_(1,i) + r_(2,i)) / (2)$
+- la pente des parois du tronc : $tan theta_i = (r_(2, i)r_(1, i)) / L_i$ avec $L_i$ la longueur du tronc
+- $s_(i, 1)$ et $s_(i, 2)$ les distances de l'apex du cône $i$ à, respectivement, l'extrémité amont du tronc, et l'extrémité aval du tronc. On a donc $s_(i, 2) = s_(i, 1) + L_i$, $r_(i, 1) = s_(i, 1) tan theta_i$ et $r_(i, 2) = s_(i, 2) tan theta_i$.
 
 Ensuite, pour chaque tronc de cône, on construit sa matrice de transfert $M_i$ (@mat_cone) en remplacant $rho$ et $chi_s$ par $rho_s$ et $chi_t$, obtenus à l'aide du rayon moyen du tronc. On calcule également l'impédance de rayonnement en sortie du système, pour le cas bafflé ou non.
 
@@ -300,14 +281,10 @@ La condition de sortie fixe le dernier $P_N$, puis on peut propager pour obtenir
   ]),
   step("D", [La déformée], [
     On a donc $Phi_n(z) = P(z)$ la première composante de $X(z)$. On a bien que
-- l'équation de propagation est vérifiée dans chaque tronc 
-(puisque par construction, $M$ est la solution locale).
-- la continuité aux jonctions 
-($X_i$ est repris pour passer d'un tronc à l'autre).
-- la condition de sortie est vérifiée puisqu'on a imposé 
-$X_N = (Z_r, 1)^T$.
-- la condition d'entrée est vérifiée, en propageant jusqu'à l'entrée, la seconde composante de 
-$X_0$ (le débit) est nulle.
+- l'équation de propagation est vérifiée dans chaque tronc (puisque par construction, $M$ est la solution locale).
+- la continuité aux jonctions est vérifiée (puisque $X_i$ est repris pour passer d'un tronc à l'autre).
+- la condition de sortie est vérifiée puisqu'on a imposé $X_N = (Z_r, 1)^T$.
+- la condition d'entrée est vérifiée, en propageant jusqu'à l'entrée, la seconde composante de $X_0$ (le débit) est nulle.
   ]),
 )
 
